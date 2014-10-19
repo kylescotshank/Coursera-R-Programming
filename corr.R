@@ -22,7 +22,7 @@
 #   # Unzips the .zip file and places "specdata" into your current working directory.
 ## --------------------------------------------------
 
-source("complete.R")
+
 corr <- function(directory, threshold = 0) {
     directory<-("./specdata/")
     ## set value for "directory"
@@ -42,7 +42,7 @@ corr <- function(directory, threshold = 0) {
         j <- j + 1
     }
     result <- corr.vector
-    return(round(result,5))
+    return(result)
 }
     
 ## --------------------------------------------------
