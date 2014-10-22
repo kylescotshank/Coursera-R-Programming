@@ -9,7 +9,7 @@
 ## Write a function named 'pollutantmean' that calculates the mean 
 ## of a pollutant (sulfate or nitrate) across a specified list of monitors. 
 ## The function 'pollutantmean' takes three arguments: 'directory', 'pollutant', 
-## and 'id'. Given a vector monitor ID numbers, 'pollutantmean' reads that monitors' 
+## and 'id'. Given a vector of monitor ID numbers, 'pollutantmean' reads that monitors' 
 ## particulate matter data from the directory specified in the 'directory' argument 
 ## and returns the mean of the pollutant across all of the monitors, ignoring 
 ## any missing values coded as NA. 
@@ -29,8 +29,9 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
     ## Read in all of the files currently in "specdata" directory
     file.numbers <- as.numeric(sub('\\.csv$','', file.names))
     ## Convert all of the elements of "file.names" vector to numeric
+    ## by calling sub()
     selected.files <- file.names[match(id, file.numbers)]
-    ## Select the file(s) in "file.names" which exactly match the id provided 
+    ## Subset the file(s) in "file.names" which exactly match the id provided 
     ## in the pollutantmean "id" argument.
     selected.list <- lapply(file.path(directory,selected.files), read.csv)
     ## Create the file path between the "specdata" directory and the selected file(s).
